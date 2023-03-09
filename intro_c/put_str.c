@@ -4,25 +4,18 @@
 void gd_putchar(char c){
     write(1, &c, 1);
 }
-int gd_putstr(char*str){
-    int i;
+int gd_putstr(char *str){
+    int i = 0;
     
-
-    i = 0;
-    
-
     while(str[i] != '\0'){
         gd_putchar(str[i]);
-        
         i++;
     }
-    
     return(i);
     
 }
 int main (void){
     int nb_put;
-    nb_put = gd_putstr("Coucou");
+    nb_put = gd_putstr("Bonjour");
     printf("%i\n", nb_put);
-    return(1);
 }
