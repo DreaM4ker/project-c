@@ -7,7 +7,7 @@ int cmpfunc (const void * a, const void * b) {
 }
 
 int main(void){
-    int array_int[5] = { 5, 6, 4, 2, 1};
+    int array[5] = { 5, 6, 4, 2, 1};
     int i = 0;
     type_lst *lst;
     type_lst *lst2;
@@ -22,16 +22,16 @@ int main(void){
     lst5 = (type_lst *)malloc(sizeof(lst5));
 
     while (i < 5){
-        qsort( array_int,5, sizeof(int),cmpfunc);
-        printf("%i\n",array_int[i]);
+        qsort( array,5, sizeof(int),cmpfunc);
+        printf("%i\n",array[i]);
         i ++;
     }
 
-    lst->nbr = array_int[0];
-    lst2->nbr = array_int[1];
-    lst3->nbr = array_int[2];
-    lst4->nbr = array_int[3];
-    lst5->nbr = array_int[4];
+    lst->nbr = array[0];
+    lst2->nbr = array[1];
+    lst3->nbr = array[2];
+    lst4->nbr = array[3];
+    lst5->nbr = array[4];
 
 
     lst->next = lst2;
@@ -40,9 +40,9 @@ int main(void){
     lst4->next = lst5;
     lst5->next = NULL;
     
-
+/*tant que lst != de NULL*/
     while (lst) {
-        printf("le nbr = %i\n", lst->nbr);
+        printf("le nombre = %i\n", lst->nbr);
         lst = lst->next;
     }
    
