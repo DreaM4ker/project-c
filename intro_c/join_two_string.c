@@ -1,3 +1,4 @@
+#include "includes.h"
 char *join_two_string(char const *s1, char const *s2){
     char *ret;
     int len = 0;
@@ -33,7 +34,7 @@ char *join_two_string(char const *s1, char const *s2){
 
 int main(void){
     char *join;
-    join = join_two_string("Hello\n", "world");
+    join = join_two_string("premiermot", "deuxiememot");
     printf("%s\n", join);
     if (join)
         free(join);
