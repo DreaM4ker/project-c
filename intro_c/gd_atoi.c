@@ -1,41 +1,44 @@
-#include "includes.h"
-int gd_atoi(char *str);
-void gd_putnbr(int nb);
-void gd_putchar(char c);
+#include <includes.h>
+
+
+/*void gd_putnbr(int nb){
+    write(1,&nb,1);
+}*/
+
+void gd_putchar(char c){
+    write(1, &c, 1);
+}
 
 int gd_atoi(char *str){
-
-
     int i = 0;
-    int ret;
+    int ret = 0;
     int neg = 1;
+    int nb;
 
-
-    while(str[i]){
-        if ((str[i]>= 48 && str[i] <= 59) || (str[i] == 43 || str[i] == 45 ))
+    while (str[i]){
+        if (str[i] >= 48 && str[i] <= 57)
+            break;
+        else if (str[i] == 43 || str[i] == 45)
             break;
         i++;
-
-
     }
-    if (str[i] >= 43 || str[i] == 45){
-        if (str[i]==45)
+    if (str[i] == 43 || str[i] == 45){
+        if (str[i] == 45)
             neg = -1;
-        
+        i++;
+    }
+    while(str[i]){
+        nb = str[i] - 48;
+        ret = ret*10 + nb;
+        i++;
+        printf("%i \n",ret);
     }
     return(ret*neg);
 
-    while (str[i]){
-        i ++;
-    }
-    
 }
 
-
-
 int main(void){
-    int result;
-    result = gd_atoi("-5000");
-    printf(result);
-    return(1);
+    int nb = gd_atoi("-5000");
+    printf("%i \n",nb);
+    
 }
