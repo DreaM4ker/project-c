@@ -1,31 +1,41 @@
-#include "includes.h"
-
-int gd_strlen(const char *str){
-    int len = 0;
-    while(str[len])
-        len++;
-    return(len);
-}
-
 char *join_two_string(char const *s1, char const *s2){
     char *ret;
-    int len;
-/*  
-logique = d'abord creer une nouvelle variable ret vide
-ensuite prendre malocc de la premiere puis de la deuxieme
- et ensuite les ajouter les un à la suite des autres en uilisant la longueur des deux chaine de caractere
- et les ajouter la premiere et la deuxieme avec +len de la premiere
-*/
+    int len = 0;
+    int j = 0;
 
+    while(s1[len] != '\0')
+        len++;
+    while(s2[j] != '\0'){
+        len++;
+        j++;
+    }
 
-    len = gd_strlen(s1)+gd_strlen(s2)+1;
-    printf("%d\n",len);
-    ret = (char *)malloc(sizeof(char) * len);
+    len = len + 1;
+    ret = (char *)malloc(sizeof(char)* len);
+
+    len = 0;
+    while(s1[len]){
+        ret[len] = s1[len];
+        len++;
+    }
+
+    j = 0;
+    while (s2[j] != '\0'){
+        ret[len] = s2[j];
+        j++;
+        len++;
+    }
+
+    ret[len] = '\0';
+
     return(ret);
-    free(ret);
-}
-int main(void){
-    char *result;
-    result = join_two_string("premiezefgerre","dxieme");
 }
 
+int main(void){
+    char *join;
+    join = join_two_string("Hello\n", "world");
+    printf("%s\n", join);
+    if (join)
+        free(join);
+    return 0;
+}
