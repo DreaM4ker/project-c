@@ -1,9 +1,4 @@
-#include <includes.h>
-
-
-/*void gd_putnbr(int nb){
-    write(1,&nb,1);
-}*/
+#include "includes.h"
 
 void gd_putchar(char c){
     write(1, &c, 1);
@@ -31,7 +26,6 @@ int gd_atoi(char *str){
         nb = str[i] - 48;
         ret = ret*10 + nb;
         i++;
-        printf("%i \n",ret);
     }
     return(ret*neg);
 
