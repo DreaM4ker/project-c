@@ -1,33 +1,33 @@
 #include "includes.h"
 char *join_two_string(char const *s1, char const *s2){
     char *ret;
-    int len = 0;
+    int i = 0;
     int j = 0;
 
-    while(s1[len] != '\0')
-        len++;
+    while(s1[i] != '\0')
+        i++;
     while(s2[j] != '\0'){
-        len++;
+        i++;
         j++;
     }
 
-    len = len + 1;
-    ret = (char *)malloc(sizeof(char)* len);
+    i = i + 1;
+    ret = (char *)malloc(sizeof(char)* i);
 
-    len = 0;
-    while(s1[len]){
-        ret[len] = s1[len];
-        len++;
+    i = 0;
+    while(s1[i]){
+        ret[i] = s1[i];
+        i++;
     }
 
     j = 0;
     while (s2[j] != '\0'){
-        ret[len] = s2[j];
+        ret[i] = s2[j];
         j++;
-        len++;
+        i++;
     }
 
-    ret[len] = '\0';
+    ret[i] = '\0';
 
     return(ret);
 }
