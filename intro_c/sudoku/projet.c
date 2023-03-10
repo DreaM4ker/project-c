@@ -29,9 +29,7 @@ int main(int argc, char **argv){
         pointeur[i]= (int *)malloc(sizeof(int)*9);
         i++;
     }
-    /* saut de ligne*/
 
-    /* pour la fin du fichier */
     int z = 0;
     int x = 0;
     int y = 0;
